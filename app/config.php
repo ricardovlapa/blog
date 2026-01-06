@@ -10,13 +10,13 @@ return [
     'site' => [
         'title' => 'Ricardo Venceslau Lapa',
         'tagline' => 'Pensamentos, notas e reflexões sobre o tempo em que vivemos.',
-        'description' => 'Crónicas e textos de opinião sobre o Barreiro, a sociedade e o tempo em que vivemos.',
-        'baseUrl' => 'ricardovenceslaulapa.com',
+        'description' => 'Crónicas de Ricardo Venceslau Lapa sobre o Barreiro, sociedade e política local.',
+        'baseUrl' => 'https://ricardovenceslaulapa.pt',
         'allowedHosts' => [
-            'ricardovenceslaulapa.com',
-            'www.ricardovenceslaulapa.com',
+            'ricardovenceslaulapa.pt',
+            'www.ricardovenceslaulapa.pt',
         ],
-        'socialImage' => 'https://ricardovenceslaulapa.com/assets/images/socialImage.jpg',
+        'socialImage' => 'https://ricardovenceslaulapa.pt/assets/images/socialImage.jpg',
         'adSlotsVisible' => $adSlotsVisible,
     ],
     'postsData' => __DIR__ . '/Data/posts.json',

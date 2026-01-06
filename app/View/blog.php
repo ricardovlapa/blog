@@ -6,7 +6,7 @@
 ?>
 <main class="container">
   <section class="section">
-    <h2>Todos os artigos</h2>
+    <h1>Todos os artigos</h1>
     <div class="layout">
       <div class="post-list">
         <?php if (count($posts) === 0): ?>
