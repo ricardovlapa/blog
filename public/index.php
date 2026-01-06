@@ -16,8 +16,8 @@ header(
     "img-src 'self' https: data:; " .
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " .
     "font-src https://fonts.gstatic.com; " .
-    "script-src 'self' 'unsafe-inline'; " .
-    "connect-src 'self'; " .
+    "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; " .
+    "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com; " .
     "base-uri 'self'; " .
     "form-action 'self'; " .
     "frame-ancestors 'self'"
