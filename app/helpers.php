@@ -13,6 +13,7 @@ function markdown(?string $value): string
 
     $escaped = preg_replace('/\\*\\*(.+?)\\*\\*/s', '<strong>$1</strong>', $escaped);
     $escaped = preg_replace('/\\*(.+?)\\*/s', '<em>$1</em>', $escaped);
+    $escaped = preg_replace('/\\^(.+?)\\^/s', '<small>$1</small>', $escaped);
     $escaped = str_replace("\n", "<br>\n", $escaped);
 
     return $escaped;

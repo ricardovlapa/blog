@@ -47,8 +47,4 @@ The feed is available at `http://localhost:8000/feed.xml` when running locally.
 - Update `app/config.php` site fields (title, description, baseUrl, socialImage, allowedHosts).
 - Replace the logo and favicon assets in `public/assets`.
 - Add or remove tags in `app/Data/tags.json`.
-- Add posts in `app/Data/posts.json` with optional `tags` and `image`.
 
-```sh
-php scripts/create-post.php --title="My title" --slug="my-title" --date="2024-09-10" --excerpt="Short summary" --image="https://example.com/image.jpg" --tags="writing,notes" --content="Full text"
-```

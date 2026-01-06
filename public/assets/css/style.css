@@ -250,6 +250,11 @@ h3 {
   grid-column: 2 / 4;
 }
 
+.post-body small {
+  font-size: 0.85em;
+  color: var(--muted);
+}
+
 .tag {
   display: inline-block;
   margin-right: 8px;
@@ -389,6 +394,19 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   text-align: center;
+}
+
+.footer-bottom a {
+  color: #cfd4d7;
+}
+
+.footer-bottom a:hover {
+  color: #ffffff;
+}
+
+.footer-sep {
+  margin: 0 8px;
+  color: #3a3f43;
 }
 
 .post-card__body {

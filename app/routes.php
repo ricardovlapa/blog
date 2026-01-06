@@ -2,6 +2,7 @@
 
 use App\Controller\AboutController;
 use App\Controller\BlogController;
+use App\Controller\EditorialPrivacyController;
 use App\Controller\FeedController;
 use App\Controller\HomeController;
 use App\Controller\PostController;
@@ -16,6 +17,10 @@ return function (Router $router, array $site, PostRepository $posts, TagReposito
 
     $router->get('/about', function () use ($site) {
         (new AboutController($site))->show();
+    });
+
+    $router->get('/nota-editorial-e-de-privacidade', function () use ($site) {
+        (new EditorialPrivacyController($site))->show();
     });
 
     $router->get('/blog', function () use ($site, $posts, $tags) {

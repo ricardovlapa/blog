@@ -101,7 +101,11 @@
     </div>
     <div class="footer-bottom">
       <div class="container">
-        <p>Copyright © <?= date('Y') ?> <?= e($site['title']) ?>. Todos os direitos reservados.</p>
+        <p>
+          Copyright © <?= date('Y') ?> <?= e($site['title']) ?>. Todos os direitos reservados.
+          <span class="footer-sep">|</span>
+          <a href="/nota-editorial-e-de-privacidade">Nota editorial e de privacidade</a>
+        </p>
       </div>
     </div>
   </footer>
