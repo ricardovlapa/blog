@@ -6,6 +6,7 @@ use App\Controller\EditorialPrivacyController;
 use App\Controller\FeedController;
 use App\Controller\HomeController;
 use App\Controller\PostController;
+use App\Controller\SitemapController;
 use App\Model\PostRepository;
 use App\Model\TagRepository;
 use App\Router;
@@ -37,5 +38,9 @@ return function (Router $router, array $site, PostRepository $posts, TagReposito
 
     $router->get('/feed.xml', function () use ($site, $posts) {
         (new FeedController($site, $posts))->show();
+    });
+
+    $router->get('/sitemap.xml', function () use ($site, $posts) {
+        (new SitemapController($site, $posts))->show();
     });
 };

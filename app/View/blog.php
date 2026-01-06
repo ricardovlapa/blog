@@ -58,6 +58,7 @@
         <div class="card">
           <h3>Acompanha as novidades</h3>
           <p>Atualizações mensais, sem ruído. Subscreve no teu leitor de feeds favorito.</p>
+          <a class="button" href="/feed.xml">Abrir feed</a>
         </div>
         <div class="ad-slot<?= $site['adSlotsVisible'] ? '' : ' ad-slot--silent' ?>" style="margin-top: 20px;">Espaço reservado para Google Ads (sidebar)</div>
       </aside>
