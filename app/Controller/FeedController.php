@@ -39,7 +39,20 @@ class FeedController
             $slug = $post['slug'] ?? '';
             $link = $baseUrl . '/post/' . $slug;
             $date = $post['date'] ?? date('Y-m-d');
-            $description = htmlspecialchars($post['excerpt'] ?? '', ENT_XML1, 'UTF-8');
+            $excerptRaw = trim($post['excerpt'] ?? '');
+            $excerptEscaped = htmlspecialchars($excerptRaw, ENT_XML1, 'UTF-8');
+            $description = $this->parseMarkdown($excerptEscaped);
+            $contentRaw = trim($post['content'] ?? '');
+            $contentHtml = '';
+            if ($contentRaw !== '') {
+                $paragraphs = preg_split('/\n\s*\n/', $contentRaw);
+                foreach ($paragraphs as $paragraph) {
+                    $paragraph = htmlspecialchars($paragraph, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+                    $paragraph = $this->parseMarkdown($paragraph);
+                    $paragraph = nl2br($paragraph);
+                    $contentHtml .= "<p>{$paragraph}</p>\n";
+                }
+            }
 
             $items .= "\n    <item>\n";
             $items .= "      <title>{$title}</title>\n";
@@ -47,6 +60,10 @@ class FeedController
             $items .= "      <guid>{$link}</guid>\n";
             $items .= "      <pubDate>" . date(DATE_RSS, strtotime($date)) . "</pubDate>\n";
             $items .= "      <description>{$description}</description>\n";
+            if ($contentHtml !== '') {
+                $safeContent = str_replace(']]>', ']]]]><![CDATA[>', $contentHtml);
+                $items .= "      <content:encoded><![CDATA[{$safeContent}]]></content:encoded>\n";
+            }
             $items .= "    </item>";
         }
 
@@ -56,16 +73,24 @@ class FeedController
         $channelLink = $baseUrl . '/blog';
 
         echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
-        echo "<rss version=\"2.0\">\n";
+        echo "<rss version=\"2.0\" xmlns:content=\"http://purl.org/rss/1.0/modules/content/\" xmlns:atom=\"http://www.w3.org/2005/Atom\">\n";
         echo "  <channel>\n";
         echo "    <title>{$siteTitle}</title>\n";
         echo "    <link>{$channelLink}</link>\n";
         echo "    <description>{$siteTagline}</description>\n";
-        echo "    <language>en-us</language>\n";
+        echo "    <language>pt-PT</language>\n";
         echo "    <lastBuildDate>" . date(DATE_RSS) . "</lastBuildDate>\n";
-        echo "    <atom:link href=\"{$feedLink}\" rel=\"self\" type=\"application/rss+xml\" xmlns:atom=\"http://www.w3.org/2005/Atom\"/>";
+        echo "    <atom:link href=\"{$feedLink}\" rel=\"self\" type=\"application/rss+xml\" />";
         echo $items;
         echo "\n  </channel>\n";
         echo "</rss>\n";
+    }
+
+    private function parseMarkdown(string $text): string
+    {
+        $text = preg_replace('/\^(.+?)\^/s', '<small>$1</small>', $text);
+        $text = preg_replace('/\*\*(.+?)\*\*/s', '<strong>$1</strong>', $text);
+        $text = preg_replace('/\*(.+?)\*/s', '<em>$1</em>', $text);
+        return $text;
     }
 }
