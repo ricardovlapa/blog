@@ -58,7 +58,14 @@
         <div class="card">
           <h3>Acompanha as novidades</h3>
           <p>Atualizações mensais, sem ruído. Subscreve no teu leitor de feeds favorito.</p>
-          <a class="button" href="/feed.xml">Abrir feed</a>
+          <a class="rss-subscribe" href="/feed.xml" aria-label="Subscrever RSS">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 18a2 2 0 1 1-2-2 2 2 0 0 1 2 2z" />
+              <path d="M4 10a10 10 0 0 1 10 10h-3a7 7 0 0 0-7-7z" />
+              <path d="M4 4a16 16 0 0 1 16 16h-3A13 13 0 0 0 4 7z" />
+            </svg>
+            <span>Subscrever</span>
+          </a>
         </div>
         <div class="ad-slot<?= $site['adSlotsVisible'] ? '' : ' ad-slot--silent' ?>" style="margin-top: 20px;">Espaço reservado para Google Ads (sidebar)</div>
       </aside>

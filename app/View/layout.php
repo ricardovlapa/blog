@@ -105,6 +105,13 @@
               <path d="M14.5 9a4.5 4.5 0 0 0-3.5 1.7V9H8v12h3v-6.2a2.2 2.2 0 0 1 2.2-2.2c1.3 0 1.8.8 1.8 2.1V21h3v-7.1C18 10.8 16.6 9 14.5 9z" />
             </svg>
           </a>
+          <a href="/feed.xml" aria-label="RSS">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M6 18a2 2 0 1 1-2-2 2 2 0 0 1 2 2z" />
+              <path d="M4 10a10 10 0 0 1 10 10h-3a7 7 0 0 0-7-7z" />
+              <path d="M4 4a16 16 0 0 1 16 16h-3A13 13 0 0 0 4 7z" />
+            </svg>
+          </a>
         </div>
       </div>
     </div>

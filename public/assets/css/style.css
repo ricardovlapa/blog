@@ -385,6 +385,23 @@ h3 {
   fill: currentColor;
 }
 
+.rss-subscribe {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.rss-subscribe svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
 .footer-bottom {
   border-top: 1px solid #2a2e31;
   background: #141516;
